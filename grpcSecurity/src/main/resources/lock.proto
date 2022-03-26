@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "lock";
+option java_outer_classname = "LockServiceImpl";
+
+package lock;
+
+service LockService {
+     
+   rpc switchPower(PowerRequest) returns (PowerResponce) {}
+   
+   rpc activateLock(stream ActivateRequest) returns(stream ActivateResponce) {}
+   
+ }
+ 
+ message PowerRequest {
+    bool switch = 1;
+ }
+ 
+ message PowerResponce {
+    bool switch = 1;
+ }
+ 
+ message ActivateRequest {
+    string text = 1;
+ }
+ 
+ message ActivateResponce {
+    string text = 1;
+ }  

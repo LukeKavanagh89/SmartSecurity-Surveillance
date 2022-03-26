@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "alarm";
+option java_outer_classname = "AlarmServiceImpl";
+
+package alarm; 
+
+service AlarmService {
+
+    rpc switchAlarm(PowerRequest) returns (PowerResponse) {}
+
+    rpc soundAlarm(SoundRequest) returns (stream SoundRequest) {}
+
+}
+
+message PowerRequest{
+    bool switch = 1;
+}
+
+message PowerResponse{
+    bool switch = 1;
+}
+
+message SoundRequest{
+   int32 sound = 1;
+}
+
+message SoundResponse{
+   int32 sound =1;
+}
+    

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "camera";
+option java_outer_classname = "CameraServiceImpl";
+
+package camera;
+
+service CameraService {
+       
+      rpc cameraRecording(PowerRequest) returns (PowerResponse) {}
+      
+      rpc cameraChange(CameraRequest) returns (stream CameraResponse) {}
+ }
+ 
+ message PowerRequest {
+     bool state = 1;
+  }
+  
+  message PowerResponse {
+     int32 video = 1;
+  }
+  
+  message CameraRequest {
+     int32 video = 1;
+  }
+
+  message CameraResponse{
+  	string CameraResponse = 1;
+  }
